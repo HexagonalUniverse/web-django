@@ -13,3 +13,10 @@ def index(request):
         },
     )
 
+
+
+def sobre(request):
+    return render(
+        request,
+        "home/sobre.html",
+    )
