@@ -11,3 +11,7 @@ Projeto de demonstração de setup página WEB em Django~
 
 ## _Sobre_
 ![Página sobre](página%20sobre.png)
+
+
+## Parte 3
+![Página sobre](parte3.png)

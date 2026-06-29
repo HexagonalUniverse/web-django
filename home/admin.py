@@ -1,12 +1,19 @@
 from django.contrib import admin
 
-# Register your models here.
-
-from .models import Mensagem
+from .models import Mensagem, Categoria
 
 
 @admin.register(Mensagem)
 class MensagemAdmin(admin.ModelAdmin):
-    list_display = ("titulo", "criada_em")
-    search_fields = ("titulo", "criada_em")
+    list_display = ("titulo", "categoria", "criada_em", )
+    list_filter = ("categoria", )
+    search_fields = ("titulo", "conteudo", )
+
+
+
+@admin.register(Categoria)
+class CategoriaAdmin(admin.ModelAdmin):
+    list_display = ("nome", )
+    search_fields = ("nome", )
+
 
