@@ -223,3 +223,6 @@ __marimo__/
 *.pyd
 .venv/
 .DS_Store
+
+
+.idea
