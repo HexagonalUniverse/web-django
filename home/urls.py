@@ -12,4 +12,7 @@ urlpatterns: list[URLPattern] = [
 
     # outro trem novo
     path("nova/", views.nova_mensagem, name="nova_mensagem"),
+
+    #
+    path("mensagens/<int:id>/editar/", views.editar_mensagem, name="editar_mensagem")
 ]
