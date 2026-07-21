@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.utils.text import slugify
 
-from .models import Mensagem
+from .forms import MensagemForm
+from .models import Mensagem, Tag
 
 
 def index(request):
@@ -20,3 +22,26 @@ def sobre(request):
         request,
         "home/sobre.html",
     )
+
+
+def nova_mensagem(request):
+    if request.method == "POST":
+        form = MensagemForm(request.POST)
+        if form.is_valid():
+            # 1. Salva título, conteúdo, autor e categoria no banco.
+            mensagem = form.save()
+
+            # 2. Transforma o texto digitado em objetos Tag e associa à mensagem.
+            tags_texto = form.cleaned_data["tags"]
+            for pedaco in tags_texto.split(","):
+                nome = slugify(pedaco)
+                if nome:
+                    tag, _ = Tag.objects.get_or_create(nome=nome)
+                    mensagem.tags.add(tag)
+
+            # 3. Redireciona para a página inicial (padrão Post/Redirect/Get).
+            return redirect("index")
+    else:
+        form = MensagemForm()
+
+    return render(request, "home/nova.html", {"form": form})
