@@ -19,3 +19,14 @@ Projeto de demonstração de setup página WEB em Django~
 
 ## Parte 4
 ![Página sobre](parte4.png)
+
+
+## Parte 5
+
+### Página principal
+![Página sobre](parte5-1.png)
+
+
+### Página de publicar mensagem
+![Página sobre](parte5-2.png)
+
