@@ -30,3 +30,17 @@ Projeto de demonstração de setup página WEB em Django~
 ### Página de publicar mensagem
 ![Página sobre](parte5-2.png)
 
+
+## Parte 6
+
+### Editar mensagem
+![Página sobre](parte6.png)
+
+
+### Página principal após remoção
+![Página sobre](parte6-2.png)
+
+
+### Remover mensagem
+![Página sobre](parte6-3.png)
+
