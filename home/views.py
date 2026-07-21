@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.utils.text import slugify
+from django.contrib import messages
 
 from .forms import MensagemForm
 from .models import Mensagem, Tag
@@ -38,6 +39,8 @@ def nova_mensagem(request):
                 if nome:
                     tag, _ = Tag.objects.get_or_create(nome=nome)
                     mensagem.tags.add(tag)
+
+            messages.success(request, "Mensagem publicada com sucesso!")
 
             # 3. Redireciona para a página inicial (padrão Post/Redirect/Get).
             return redirect("index")
